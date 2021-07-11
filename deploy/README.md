@@ -1,6 +1,6 @@
 # Shopping cart integrator
 <p>Easy integration of shopping cart into React JS applications.</p>
-<b>NB: still at initial stages of development, You can test it out  🤓</b>
+<b>NB: still at initial stages of development, You can test it out  🤓 .</b>
 
 ### Installation
 ```
@@ -9,15 +9,17 @@
 ### Setup
 
 ```
-import { CartButton, CartListing } from "reacteasycart"
+import { CartWrapper, CartButton, CartListing } from "reacteasycart"
 
 ```
 
 #### Example
 
+<b>NB: make sure the application is wrapped up with the <CartWrapper> component</b>
+
 ```
 import React from "react";
-import { CartButton, CartListing } from "./components/index"
+import { CartWrapper, CartButton, CartListing } from "reacteasycart"
 
 function App() {
 
@@ -46,6 +48,8 @@ function App() {
   }
 
   return (
+    <CartWrapper>
+
     <div style={{ ...containerStyles }}>
       <div style={{ ...productButtonStyles }}>
         {products.map((product, index) =>
@@ -67,9 +71,11 @@ function App() {
           </React.Fragment>
         )}
       </div>
-      <CartListing continueToCheckout={continueToCheckout} currencySign="$" />
 
+      <CartListing continueToCheckout={continueToCheckout} currencySign="$" />
     </div>
+
+     </CartWrapper>
   );
 }
 
