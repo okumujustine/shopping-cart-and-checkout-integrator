@@ -1,0 +1,17 @@
+{
+  "name": "reacteasycart",
+  "version": "1.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "keywords": ["react", "components", "ui"],
+  "files": [ "dist", "README.md" ],
+  "private": false,
+  "author": "Justine",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okumujustine/shopping-cart-and-checkout-integrator.git"
+}
+}
+
