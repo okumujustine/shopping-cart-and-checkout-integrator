@@ -15,7 +15,7 @@ import { CartWrapper, CartButton, CartListing } from "reacteasycart"
 
 #### Example
 
-<b>NB: make sure the application is wrapped up with the <CartWrapper> component</b>
+<p>NB: make sure the application is wrapped up with the <b>CartWrapper</b> component</p>
 
 ```
 import React from "react";
