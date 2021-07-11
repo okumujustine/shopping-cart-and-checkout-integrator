@@ -1,6 +1,6 @@
 {
   "name": "reacteasycart",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "",
   "main": "dist/index.js",
   "keywords": [
@@ -9,6 +9,7 @@
     "ui"
   ],
   "files": [
+    "dist",
     "README.md"
   ],
   "private": false,
