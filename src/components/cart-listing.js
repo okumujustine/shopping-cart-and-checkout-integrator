@@ -3,7 +3,7 @@ import { CartContext } from "./cart-context"
 
 import { IncrementAndDecrementButtons } from "./cart-buttons"
 
-function CartListing() {
+function CartListing({ currencySign, continueToCheckout }) {
     const cartContext = React.useContext(CartContext);
     const cartStateItems = cartContext?.cartState
     const cartStateItemSetter = cartContext?.setCartState
@@ -16,6 +16,9 @@ function CartListing() {
         return total
     }
 
+    const cartTotalPrice = ({ price, quantity }) => {
+        return price * quantity
+    }
     return (
         <div>
             <h2>Shopping Cart</h2>
@@ -48,7 +51,7 @@ function CartListing() {
                                 <p>{cartItem?.description}</p>
                             </div>
                             <div className="w-2/12" >{(`${cartItem?.quantity} items`)}</div>
-                            <div className="w-2/12">{cartItem?.price * cartItem?.quantity}</div>
+                            <div className="w-2/12">{currencySign}{cartTotalPrice(cartItem)}</div>
                             <div className="w-2/12">
                                 <IncrementAndDecrementButtons
                                     product={cartItem}
@@ -61,8 +64,12 @@ function CartListing() {
                 </div>
                 <hr />
                 <div>
-                    <h5>Total: ${`${totalPrice(cartStateItems)}.00`}</h5>
-                    <button className="cart__proceed_to__checkout_button">Proceed to checkout</button>
+                    <h5>Total: {currencySign}{totalPrice(cartStateItems)}</h5>
+                    <button onClick={() => continueToCheckout({
+                        total_price: totalPrice(cartStateItems),
+                        currency_sign: currencySign,
+                        cart_items: cartStateItems
+                    })} className="cart__proceed_to__checkout_button">Proceed to checkout</button>
                 </div>
             </>}
 

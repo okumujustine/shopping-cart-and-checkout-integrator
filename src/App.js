@@ -7,9 +7,11 @@ function App() {
   const products = [
     { id: 1, name: 'yogurt', price: 6000, description: "amazing product for cooking faster" },
     { id: 2, name: 'milk', price: 12000, description: "amazing product for cooking faster" },
-    { id: 3, name: 'passion juice', price: 1000, description: "amazing product for cooking faster" },
-    { id: 4, name: 'minute one juice', price: 11250, description: "amazing product for cooking faster" }
   ]
+
+  const continueToCheckout = (checkoutDetails) => {
+    console.log('continueToCheckout', checkoutDetails)
+  }
 
   return (
     <div style={{ marginLeft: "50px", marginTop: "100px", paddingTop: "20px", paddingBottom: "30px" }}>
@@ -34,7 +36,7 @@ function App() {
         </div>
 
         <div style={{ marginLeft: "50px", width: "70%", padding: "7px 10px", border: "1px solid gray" }}>
-          <CartListing />
+          <CartListing continueToCheckout={continueToCheckout} currencySign="$" />
         </div>
       </div>
     </div>
