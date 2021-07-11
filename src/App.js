@@ -1,8 +1,22 @@
 import React from "react";
-import { CartValueWithLogo, CartButton, CartListing } from "./components/index"
+import { CartButton, CartListing } from "./components/index"
 
 function App() {
 
+  const containerStyles =
+  {
+    display: "flex",
+    justifyContent: "space-between",
+    marginLeft: "50px",
+    marginRight: "50px",
+    marginTop: "50px"
+  }
+
+  const productButtonStyles =
+  {
+    width: '10%',
+    marginRight: "50px"
+  }
 
   const products = [
     { id: 1, name: 'yogurt', price: 6000, description: "amazing product for cooking faster" },
@@ -14,35 +28,29 @@ function App() {
   }
 
   return (
-    <div style={{ marginLeft: "50px", }}>
-      <div>
-        <CartValueWithLogo />
+    <div style={{ ...containerStyles }}>
+      <div style={{ ...productButtonStyles }}>
+        {products.map((product, index) =>
+          <React.Fragment key={index}>
+            <div>
+              <b>{product.name}</b>
+              <p>{product.price}</p>
+              <CartButton
+                product={{
+                  name: product.name,
+                  id: product.id,
+                  price: product.price,
+                  description: product.description,
+                  quantity: 1
+                }}
+              />
+            </div>
+            <hr />
+          </React.Fragment>
+        )}
       </div>
-      <div style={{ display: "flex" }}>
-        <div>
-          {products.map((product, index) =>
-            <React.Fragment key={index}>
-              <div style={{ width: "200px", marginBottom: "10px" }}>
-                <h5>{product.name}</h5>
-                <p>{product.price}</p>
-                <CartButton
-                  product={{
-                    name: product.name,
-                    id: product.id,
-                    price: product.price,
-                    description: product.description,
-                    quantity: 1
-                  }}
-                />
-              </div>
-              <hr />
-            </React.Fragment>)}
-        </div>
+      <CartListing continueToCheckout={continueToCheckout} currencySign="$" />
 
-        <div style={{ marginLeft: "50px", width: "70%", padding: "7px 10px", border: "1px solid gray" }}>
-          <CartListing continueToCheckout={continueToCheckout} currencySign="$" />
-        </div>
-      </div>
     </div>
   );
 }

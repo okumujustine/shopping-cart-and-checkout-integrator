@@ -65,7 +65,7 @@ function CartValueWithLogo() {
     }
 
     return (
-        <div>{cartStateItems?.length}</div>
+        <div>{cartStateItems?.length} items(s)</div>
     )
 }
 

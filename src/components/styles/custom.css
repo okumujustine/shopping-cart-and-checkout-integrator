@@ -27,7 +27,7 @@
 
 .cart__in__cart__button_main{
 display: flex;
-width:100px;
+max-width:100px;
 justify-content:space-between;
 align-items: center;
 border:1px solid #dddddd;
@@ -233,7 +233,7 @@ border-radius:5px;
   }
 
 .cart__item {
-  border: 1px solid black;
+  border: 1px solid rgb(214, 214, 214);
 }
 
 /* flex widths */

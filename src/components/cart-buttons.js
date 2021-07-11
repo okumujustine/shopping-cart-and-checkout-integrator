@@ -40,7 +40,7 @@ function IncrementAndDecrementButtons({ product, cartStateItems, setCartState })
     }
 
     return (
-        <div className="cart__in__cart__button_main">
+        <div className="cart__in__cart__button_main w-full">
             <button
                 className="cart__in__cart__button cart__in__cart__button_increment"
                 onClick={() => incrementItemQuantity(cartStateItems, product)}
