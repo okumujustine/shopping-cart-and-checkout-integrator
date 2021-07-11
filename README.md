@@ -1,11 +1,18 @@
-# Shopping cart and checkout integrator
-### `npm start`
+# Shopping cart integrator
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Installation
+```
+ Installation coming soon
+```
+### Setup
 
-### `npm test`
+```
+import { CartValueWithLogo, CartButton, CartListing } from "./components/index"
 
-### `npm run build`
-### `npm run build` fails to minify
+```
+
+#### Example
+```
+```
+
 
