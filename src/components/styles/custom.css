@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 .cart__add__to__button {
     display: block;
     position: relative;
@@ -324,7 +326,7 @@ border-radius:5px;
 }
 
 .pb-25 {
-  padding-bottom: 25px;
+  padding-bottom: 9px;
 }
 
 
@@ -361,4 +363,13 @@ border-radius:5px;
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+}
+
+.af__cart__bg_image{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 4px;
+  width: 80px;
+  height: 90px
 }

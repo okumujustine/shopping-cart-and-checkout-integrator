@@ -30,8 +30,9 @@ function CartListing({ currencySign, continueToCheckout }) {
                 <div>
                     {cartStateItems.map((cartItem, index) =>
                         <div key={index} className="flex justify-between items-center pb-25 mb-2 py-10 margin-bottom cart__item">
-                            <div className="w-2/12">
-                                image
+                            <div className="w-2/12 af__cart__bg_image" style={{
+                                backgroundImage: "url(" + cartItem.image + ")",
+                            }}>
                             </div>
                             <div className="w-4/12">
                                 <h5>{cartItem?.name}</h5>

@@ -41,7 +41,8 @@ function App() {
                   id: product.id,
                   price: product.price,
                   description: product.description,
-                  quantity: 1
+                  quantity: 1,
+                  image: "https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z"
                 }}
               />
             </div>
