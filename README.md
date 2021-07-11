@@ -4,12 +4,12 @@
 
 ### Installation
 ```
- Installation coming soon
+ npm i reacteasycart --save
 ```
 ### Setup
 
 ```
-import { CartValueWithLogo, CartButton, CartListing } from "./components/index"
+import { CartButton, CartListing } from "reacteasycart"
 
 ```
 
