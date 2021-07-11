@@ -22,6 +22,6 @@ jobs:
               registry-url: https://registry.npmjs.com
           - name: "🚀 publish"
             run: npm publish
-            working-directory: deploy
+            working-directory: deploy/dist
             env:
               NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
