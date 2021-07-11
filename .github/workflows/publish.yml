@@ -1,23 +1,28 @@
-name: "🚀 publish"
+name: "🚀 Publish package to GitHub package registry / NPM"
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
-       branches:
-          - main
+    branches:
+        - main
+    paths:
+      - 'deploy/*'
 
 jobs:
     release:
-        name: 😇 publish
+        name: "😇 publish"
         runs-on: ubuntu-latest
         steps:
-          - name: 🤓 checkout
+          - name: "🤓 checkout"
             uses: actions/checkout@v2.1.1
-          - name: node
+          - name: "Node environment set up"
             uses: actions/setup-node@v1.4.2
             with:
               node-version: 12
               registry-url: https://registry.npmjs.com
-          - name: 🚀 publish
+          - name: "🚀 publish"
             run: npm publish
             working-directory: deploy
             env:
