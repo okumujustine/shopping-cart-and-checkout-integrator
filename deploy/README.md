@@ -4,12 +4,12 @@
 
 ### Installation
 ```
- npm i reacteasycart --save
+ npm i react-easy-cart --save
 ```
 ### Setup
 
 ```
-import { CartWrapper, CartButton, CartListing } from "reacteasycart"
+import { CartWrapper, CartButton, CartListing } from "react-easy-cart"
 
 ```
 
