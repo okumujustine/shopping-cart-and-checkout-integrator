@@ -8,7 +8,7 @@
 ```
 ### Setup
 
-```
+```jsx
 import { CartWrapper, CartButton, CartListing } from "react-easy-cart"
 
 ```
@@ -17,7 +17,7 @@ import { CartWrapper, CartButton, CartListing } from "react-easy-cart"
 
 <p>NB: make sure the application is wrapped up with the <b>CartWrapper</b> component</p>
 
-```
+```jsx
 import React from "react";
 import { CartWrapper, CartButton, CartListing } from "reacteasycart"
 
@@ -87,10 +87,10 @@ export default App;
 ### Customization
 <p>Adding custom styles and classes</p>
 <p><b>1. CartButton</b></p>
-  i) <p>Use <b>buttonStyle</b> and <b>buttonClass</b>  props and specify the target button to add custom styles and classes respectively</p>
+  i) Use <b>buttonStyle</b> and <b>buttonClass</b>  props and specify the target button to add custom styles and classes respectively
 
 Example:
-  ```
+  ```jsx
     <CartButton
       buttonStyle={{
         addToCart: { backgroundColor: '#00b0ff' },
@@ -104,27 +104,27 @@ Example:
       }}
   ```
 
-  ii) <p>To disable the decrement and increment buttons on the CartButton use <b>isIncrementAndDecrementBtn</b> prop</p>
+  ii) To disable the decrement and increment buttons on the CartButton use <b>isIncrementAndDecrementBtn</b> prop
 
-  ```
+  ```jsx
     <CartButton
       isIncrementAndDecrementBtn={false}
   ```
 
 <p><b>1. CartListing</b></p>
-  i) <p>Use <b>cartDetailsBtnClass</b>  props and specify the target button to add custom classes</p>
+  i) Use <b>cartDetailsBtnClass</b>  props and specify the target button to add custom classes
 
-  ```
-  <CartListing
-      cartDetailsBtnClass={{ increment: "int_acc" 
-      }}
-      isCartLogo={false}
+  ```jsx
+    <CartListing
+        cartDetailsBtnClass={{ increment: "int_acc" 
+        }}
+        isCartLogo={false}
 ```
 
-ii) <p>Cart logo show/hide</p>
+ii) Cart logo show/hide
 
-```
-  <CartListing
-      isCartLogo={false}
+  ```jsx
+    <CartListing
+        isCartLogo={false}
 ```
 
