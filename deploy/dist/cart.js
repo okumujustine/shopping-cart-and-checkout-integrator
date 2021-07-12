@@ -29,7 +29,7 @@ function CartButton(_ref) {
     product,
     buttonClass,
     buttonStyle,
-    isIncrementAndDecrementBtn
+    isIncrementAndDecrementBtn = true
   } = _ref;
   const cartContext = (0, _react.useContext)(_cartContext.CartContext);
   const addToCartBtnClass = buttonClass === null || buttonClass === void 0 ? void 0 : buttonClass.addToCart;

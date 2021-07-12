@@ -9,7 +9,7 @@ function CartButton({
     product,
     buttonClass,
     buttonStyle,
-    isIncrementAndDecrementBtn
+    isIncrementAndDecrementBtn = true
 }) {
 
     const cartContext = useContext(CartContext);
