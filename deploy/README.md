@@ -84,3 +84,48 @@ export default App;
 
 ```
 
+### Customization
+<p>Adding custom styles and classes</p>
+<p><b>1. CartButton</b></p>
+  i) <p>Use <b>buttonStyle</b> and <b>buttonClass</b>  props and specify the target button to add custom styles and classes respectively</p>
+
+Example:
+  ```
+    <CartButton
+      buttonStyle={{
+        addToCart: { backgroundColor: '#00b0ff' },
+        increment: { backgroundColor: 'purple' },
+        decrement: { backgroundColor: 'green' }
+      }}
+      buttonClass={{
+        addToCart: "bg__bg_Red",
+        increment: "bg__bg_Red",
+        decrement: "bg__bg_Red"
+      }}
+  ```
+
+  ii) <p>To disable the decrement and increment buttons on the CartButton use <b>isIncrementBtn</b> and <b>isDecrementBtn</b> props</p>
+
+  ```
+    <CartButton
+      isIncrementBtn={false}
+      isDecrementBtn={false}
+  ```
+
+<p><b>1. CartListing</b></p>
+  i) <p>Use <b>cartDetailsBtnClass</b>  props and specify the target button to add custom classes</p>
+
+  ```
+    <CartListing
+        cartDetailsBtnClass={{ increment: "int_acc" 
+        }}
+        isCartLogo={false}
+```
+
+ii) <p>Cart logo show/hide</p>
+
+  ```
+    <CartListing
+        isCartLogo={false}
+```
+

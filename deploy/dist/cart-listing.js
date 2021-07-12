@@ -20,13 +20,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function CartListing(_ref) {
   let {
     currencySign,
-    continueToCheckout
+    continueToCheckout,
+    isCartLogo,
+    newLogo,
+    isDescription = true,
+    description,
+    cartDetailsBtnClass,
+    cartDetailsBtnStyle
   } = _ref;
 
   const cartContext = _react.default.useContext(_cartContext.CartContext);
 
   const cartStateItems = cartContext === null || cartContext === void 0 ? void 0 : cartContext.cartState;
   const cartStateItemSetter = cartContext === null || cartContext === void 0 ? void 0 : cartContext.setCartState;
+  console.log("cartDetailsBtnClass", cartDetailsBtnClass === null || cartDetailsBtnClass === void 0 ? void 0 : cartDetailsBtnClass.increment);
+  const incrementBtnClass = cartDetailsBtnClass === null || cartDetailsBtnClass === void 0 ? void 0 : cartDetailsBtnClass.increment;
+  const decrementBtnClass = cartDetailsBtnClass === null || cartDetailsBtnClass === void 0 ? void 0 : cartDetailsBtnClass.decrement;
+  const incrementBtnStyle = cartDetailsBtnStyle === null || cartDetailsBtnStyle === void 0 ? void 0 : cartDetailsBtnStyle.increment;
+  const decrementBtnStyle = cartDetailsBtnStyle === null || cartDetailsBtnStyle === void 0 ? void 0 : cartDetailsBtnStyle.decrement;
 
   function totalPrice(array) {
     let total = 0;
@@ -52,7 +63,12 @@ function CartListing(_ref) {
     className: "w-full mx-2"
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Shopping Cart"), /*#__PURE__*/_react.default.createElement("div", {
     className: "mb-2"
-  }, /*#__PURE__*/_react.default.createElement(_cart.CartValueWithLogo, null)), cartStateItems.length > 0 && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, cartStateItems.map((cartItem, index) => /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement(_cart.ItemsInCart, {
+    isCartLogo: isCartLogo,
+    newLogo: newLogo,
+    isDescription: isDescription,
+    description: description
+  })), cartStateItems.length > 0 && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, cartStateItems.map((cartItem, index) => /*#__PURE__*/_react.default.createElement("div", {
     key: index,
     className: "flex justify-between items-center pb-25 mb-2 py-10 margin-bottom cart__item"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -67,6 +83,10 @@ function CartListing(_ref) {
   }, "".concat(cartItem === null || cartItem === void 0 ? void 0 : cartItem.quantity)), /*#__PURE__*/_react.default.createElement("div", {
     className: "w-4/12"
   }, /*#__PURE__*/_react.default.createElement("p", null, currencySign, cartTotalPrice(cartItem)), /*#__PURE__*/_react.default.createElement(_cartButtons.IncrementAndDecrementButtons, {
+    incrementBtnStyle: incrementBtnStyle,
+    decrementBtnStyle: decrementBtnStyle,
+    incrementBtnClass: incrementBtnClass,
+    decrementBtnClass: decrementBtnClass,
     product: cartItem,
     cartStateItems: cartStateItems,
     setCartState: cartStateItemSetter

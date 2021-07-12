@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.CartButton = CartButton;
-exports.CartValueWithLogo = CartValueWithLogo;
+exports.ItemsInCart = ItemsInCart;
+
+require("core-js/modules/es.symbol.description.js");
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -24,9 +26,17 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 function CartButton(_ref) {
   let {
-    product
+    product,
+    buttonClass,
+    buttonStyle
   } = _ref;
   const cartContext = (0, _react.useContext)(_cartContext.CartContext);
+  const addToCartBtnClass = buttonClass === null || buttonClass === void 0 ? void 0 : buttonClass.addToCart;
+  const incrementBtnClass = buttonClass === null || buttonClass === void 0 ? void 0 : buttonClass.increment;
+  const decrementBtnClass = buttonClass === null || buttonClass === void 0 ? void 0 : buttonClass.decrement;
+  const addToCartBtnStyle = buttonStyle === null || buttonStyle === void 0 ? void 0 : buttonStyle.addToCart;
+  const incrementBtnStyle = buttonStyle === null || buttonStyle === void 0 ? void 0 : buttonStyle.increment;
+  const decrementBtnStyle = buttonStyle === null || buttonStyle === void 0 ? void 0 : buttonStyle.decrement;
   const cartStateItems = cartContext === null || cartContext === void 0 ? void 0 : cartContext.cartState;
   const cartStateItemSetter = cartContext === null || cartContext === void 0 ? void 0 : cartContext.setCartState;
 
@@ -44,17 +54,29 @@ function CartButton(_ref) {
   }
 
   return /*#__PURE__*/_react.default.createElement("div", null, !cartStateItems.some(el => el.id === product.id) ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_cartButtons.AddToCartButton, {
+    addToCartBtnClass: addToCartBtnClass,
+    addToCartBtnStyle: addToCartBtnStyle,
     product: product,
     cartStateItems: cartStateItems,
     setCartState: cartStateItemSetter
   })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_cartButtons.IncrementAndDecrementButtons, {
+    incrementBtnStyle: incrementBtnStyle,
+    decrementBtnStyle: decrementBtnStyle,
+    incrementBtnClass: incrementBtnClass,
+    decrementBtnClass: decrementBtnClass,
     product: product,
     cartStateItems: cartStateItems,
     setCartState: cartStateItemSetter
   })));
 }
 
-function CartValueWithLogo() {
+function ItemsInCart(_ref2) {
+  let {
+    isCartLogo = true,
+    newLogo,
+    isDescription = true,
+    description
+  } = _ref2;
   const cartContext = (0, _react.useContext)(_cartContext.CartContext);
   const cartStateItems = cartContext === null || cartContext === void 0 ? void 0 : cartContext.cartState;
 
@@ -62,5 +84,16 @@ function CartValueWithLogo() {
     return /*#__PURE__*/_react.default.createElement("div", null);
   }
 
-  return /*#__PURE__*/_react.default.createElement("div", null, cartStateItems === null || cartStateItems === void 0 ? void 0 : cartStateItems.length, " items(s)");
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "af__items_in_cart"
+  }, isCartLogo && !newLogo && /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    class: "af__cart_icon",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    "fill-rule": "evenodd",
+    d: "M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z",
+    "clip-rule": "evenodd"
+  })), " ", cartStateItems === null || cartStateItems === void 0 ? void 0 : cartStateItems.length, " ", isDescription && /*#__PURE__*/_react.default.createElement("span", null, description ? description : 'items(s)'));
 }

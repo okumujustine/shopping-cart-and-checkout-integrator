@@ -10,10 +10,10 @@ Object.defineProperty(exports, "CartButton", {
     return _cart.CartButton;
   }
 });
-Object.defineProperty(exports, "CartValueWithLogo", {
+Object.defineProperty(exports, "ItemsInCart", {
   enumerable: true,
   get: function get() {
-    return _cart.CartValueWithLogo;
+    return _cart.ItemsInCart;
   }
 });
 Object.defineProperty(exports, "CartListing", {

@@ -373,3 +373,14 @@ border-radius:5px;
   width: 80px;
   height: 90px
 }
+
+.af__cart_icon{
+  width: 20px;
+  height: 20px;
+  padding-right: 3px;
+}
+
+.af__items_in_cart{
+  display: flex;
+  align-items: center;
+}
