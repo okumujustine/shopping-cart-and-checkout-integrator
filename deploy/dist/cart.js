@@ -28,7 +28,8 @@ function CartButton(_ref) {
   let {
     product,
     buttonClass,
-    buttonStyle
+    buttonStyle,
+    isIncrementAndDecrementBtn
   } = _ref;
   const cartContext = (0, _react.useContext)(_cartContext.CartContext);
   const addToCartBtnClass = buttonClass === null || buttonClass === void 0 ? void 0 : buttonClass.addToCart;
@@ -59,7 +60,13 @@ function CartButton(_ref) {
     product: product,
     cartStateItems: cartStateItems,
     setCartState: cartStateItemSetter
-  })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_cartButtons.IncrementAndDecrementButtons, {
+  })) : /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, !isIncrementAndDecrementBtn ? /*#__PURE__*/_react.default.createElement(_cartButtons.AddToCartButton, {
+    addToCartBtnClass: addToCartBtnClass,
+    addToCartBtnStyle: addToCartBtnStyle,
+    product: product,
+    cartStateItems: cartStateItems,
+    setCartState: cartStateItemSetter
+  }) : /*#__PURE__*/_react.default.createElement(_cartButtons.IncrementAndDecrementButtons, {
     incrementBtnStyle: incrementBtnStyle,
     decrementBtnStyle: decrementBtnStyle,
     incrementBtnClass: incrementBtnClass,
@@ -88,12 +95,16 @@ function ItemsInCart(_ref2) {
     className: "af__items_in_cart"
   }, isCartLogo && !newLogo && /*#__PURE__*/_react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    class: "af__cart_icon",
+    className: "af__cart_icon",
     viewBox: "0 0 20 20",
     fill: "currentColor"
   }, /*#__PURE__*/_react.default.createElement("path", {
-    "fill-rule": "evenodd",
+    fillRule: "evenodd",
     d: "M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z",
-    "clip-rule": "evenodd"
-  })), " ", cartStateItems === null || cartStateItems === void 0 ? void 0 : cartStateItems.length, " ", isDescription && /*#__PURE__*/_react.default.createElement("span", null, description ? description : 'items(s)'));
+    clipRule: "evenodd"
+  })), " ", " ".concat(cartStateItems === null || cartStateItems === void 0 ? void 0 : cartStateItems.length, " "), " ", isDescription && /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      paddingLeft: "4px"
+    }
+  }, description ? " ".concat(description) : ' items(s)'));
 }

@@ -33,7 +33,6 @@ function CartListing(_ref) {
 
   const cartStateItems = cartContext === null || cartContext === void 0 ? void 0 : cartContext.cartState;
   const cartStateItemSetter = cartContext === null || cartContext === void 0 ? void 0 : cartContext.setCartState;
-  console.log("cartDetailsBtnClass", cartDetailsBtnClass === null || cartDetailsBtnClass === void 0 ? void 0 : cartDetailsBtnClass.increment);
   const incrementBtnClass = cartDetailsBtnClass === null || cartDetailsBtnClass === void 0 ? void 0 : cartDetailsBtnClass.increment;
   const decrementBtnClass = cartDetailsBtnClass === null || cartDetailsBtnClass === void 0 ? void 0 : cartDetailsBtnClass.decrement;
   const incrementBtnStyle = cartDetailsBtnStyle === null || cartDetailsBtnStyle === void 0 ? void 0 : cartDetailsBtnStyle.increment;

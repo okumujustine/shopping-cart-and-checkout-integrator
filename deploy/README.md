@@ -104,28 +104,27 @@ Example:
       }}
   ```
 
-  ii) <p>To disable the decrement and increment buttons on the CartButton use <b>isIncrementBtn</b> and <b>isDecrementBtn</b> props</p>
+  ii) <p>To disable the decrement and increment buttons on the CartButton use <b>isIncrementAndDecrementBtn</b> prop</p>
 
   ```
     <CartButton
-      isIncrementBtn={false}
-      isDecrementBtn={false}
+      isIncrementAndDecrementBtn={false}
   ```
 
 <p><b>1. CartListing</b></p>
   i) <p>Use <b>cartDetailsBtnClass</b>  props and specify the target button to add custom classes</p>
 
   ```
-    <CartListing
-        cartDetailsBtnClass={{ increment: "int_acc" 
-        }}
-        isCartLogo={false}
+  <CartListing
+      cartDetailsBtnClass={{ increment: "int_acc" 
+      }}
+      isCartLogo={false}
 ```
 
 ii) <p>Cart logo show/hide</p>
 
-  ```
-    <CartListing
-        isCartLogo={false}
+```
+  <CartListing
+      isCartLogo={false}
 ```
 

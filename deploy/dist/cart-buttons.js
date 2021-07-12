@@ -30,7 +30,6 @@ function IncrementAndDecrementButtons(_ref) {
     incrementBtnStyle,
     decrementBtnStyle
   } = _ref;
-  console.log(incrementBtnClass);
 
   const decrementItemQuantity = (itemsInCart, newProduct) => {
     let cartItems = itemsInCart === null || itemsInCart === void 0 ? void 0 : itemsInCart.slice();

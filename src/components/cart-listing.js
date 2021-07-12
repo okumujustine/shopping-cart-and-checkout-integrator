@@ -1,13 +1,19 @@
 import React from 'react'
 import { CartContext } from "./cart-context"
-import { CartValueWithLogo } from "./cart"
+import { ItemsInCart } from "./cart"
 
 import { IncrementAndDecrementButtons } from "./cart-buttons"
 
-function CartListing({ currencySign, continueToCheckout }) {
+function CartListing({ currencySign, continueToCheckout, isCartLogo, newLogo, isDescription = true, description, cartDetailsBtnClass, cartDetailsBtnStyle }) {
     const cartContext = React.useContext(CartContext);
     const cartStateItems = cartContext?.cartState
     const cartStateItemSetter = cartContext?.setCartState
+
+    const incrementBtnClass = cartDetailsBtnClass?.increment
+    const decrementBtnClass = cartDetailsBtnClass?.decrement
+
+    const incrementBtnStyle = cartDetailsBtnStyle?.increment
+    const decrementBtnStyle = cartDetailsBtnStyle?.decrement
 
     function totalPrice(array) {
         let total = 0;
@@ -24,7 +30,7 @@ function CartListing({ currencySign, continueToCheckout }) {
         <div className="w-full mx-2">
             <h2>Shopping Cart</h2>
             <div className="mb-2">
-                <CartValueWithLogo />
+                <ItemsInCart isCartLogo={isCartLogo} newLogo={newLogo} isDescription={isDescription} description={description} />
             </div>
             {cartStateItems.length > 0 && <>
                 <div>
@@ -42,6 +48,10 @@ function CartListing({ currencySign, continueToCheckout }) {
                             <div className="w-4/12">
                                 <p>{currencySign}{cartTotalPrice(cartItem)}</p>
                                 <IncrementAndDecrementButtons
+                                    incrementBtnStyle={incrementBtnStyle}
+                                    decrementBtnStyle={decrementBtnStyle}
+                                    incrementBtnClass={incrementBtnClass}
+                                    decrementBtnClass={decrementBtnClass}
                                     product={cartItem}
                                     cartStateItems={cartStateItems}
                                     setCartState={cartStateItemSetter}

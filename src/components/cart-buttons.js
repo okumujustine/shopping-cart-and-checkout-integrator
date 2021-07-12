@@ -2,7 +2,15 @@ import React from 'react'
 
 import { incrementArrayQuantity, decrementArrayQuantity, isProductInArray, getQuantityFromArray } from "./helpers/action"
 
-function IncrementAndDecrementButtons({ product, cartStateItems, setCartState }) {
+function IncrementAndDecrementButtons({
+    product,
+    cartStateItems,
+    setCartState,
+    incrementBtnClass,
+    decrementBtnClass,
+    incrementBtnStyle,
+    decrementBtnStyle,
+}) {
 
     const decrementItemQuantity = (itemsInCart, newProduct) => {
         let cartItems = itemsInCart?.slice();
@@ -42,14 +50,16 @@ function IncrementAndDecrementButtons({ product, cartStateItems, setCartState })
     return (
         <div className="cart__in__cart__button_main w-full">
             <button
-                className="cart__in__cart__button cart__in__cart__button_increment"
+                className={`cart__in__cart__button cart__in__cart__button_increment ${incrementBtnClass}`}
+                style={{ ...incrementBtnStyle }}
                 onClick={() => incrementItemQuantity(cartStateItems, product)}
             >
                 <span>+</span>
             </button>
             <span>{getQuantityFromArray(cartStateItems, product).quantity}</span>
             <button
-                className="cart__in__cart__button cart__in__cart__button_decrement"
+                className={`cart__in__cart__button cart__in__cart__button_decrement ${decrementBtnClass}`}
+                style={{ ...decrementBtnStyle }}
                 onClick={() => decrementItemQuantity(cartStateItems, product)}
             >
                 <span>-</span>
@@ -59,7 +69,8 @@ function IncrementAndDecrementButtons({ product, cartStateItems, setCartState })
 }
 
 
-const AddToCartButton = ({ product, cartStateItems, setCartState }) => {
+const AddToCartButton = ({ product, cartStateItems, setCartState, addToCartBtnClass, addToCartBtnStyle }) => {
+
     const addToCart = () => {
 
         const cartItems = cartStateItems?.slice();
@@ -76,10 +87,11 @@ const AddToCartButton = ({ product, cartStateItems, setCartState }) => {
 
     return (
         <button
-            className="cart__add__to__button"
+            className={`cart__add__to__button ${addToCartBtnClass}`}
             onClick={addToCart}
+            style={{ ...addToCartBtnStyle }}
         >
-            <span>Add to Card</span>
+            <span>Add to Cart</span>
         </button>
     )
 }
