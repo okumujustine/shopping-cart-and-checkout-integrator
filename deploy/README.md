@@ -7,15 +7,14 @@
  npm i react-easy-cart --save
 ```
 # Simple setup
-#### Example
 
 ```jsx
-import { CartButton, CartWrapper } from "./components/index"
+import { CartButton, CartWrapper } from "react-easy-cart"
 ```
 
 ```jsx
 import React from "react";
-import { CartButton, CartWrapper } from "./components/index"
+import { CartButton, CartWrapper } from "react-easy-cart"
 
 function App() {
 
@@ -58,7 +57,8 @@ function App() {
 export default App;
 ```
 
-# More custom usage (Setup)
+# More custom usage
+### Setup
 
 ```jsx
 import { CartWrapper, CartButton, CartListing } from "react-easy-cart"

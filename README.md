@@ -9,12 +9,12 @@
 # Simple setup
 
 ```jsx
-import { CartButton, CartWrapper } from "./components/index"
+import { CartButton, CartWrapper } from "react-easy-cart"
 ```
 
 ```jsx
 import React from "react";
-import { CartButton, CartWrapper } from "./components/index"
+import { CartButton, CartWrapper } from "react-easy-cart"
 
 function App() {
 
