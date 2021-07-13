@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <CartWrapper cartShow={false} currencySign="$" continueToCheckout={continueToCheckout}>
+    <CartWrapper cartShow={true} currencySign="$" continueToCheckout={continueToCheckout}>
       <div>
         {products.map((product, index) =>
           <React.Fragment key={index}>
