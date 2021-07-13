@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.CartButton = CartButton;
-exports.ItemsInCart = ItemsInCart;
+exports.TotalItemsInCart = TotalItemsInCart;
 
 require("core-js/modules/es.symbol.description.js");
 
@@ -77,7 +77,7 @@ function CartButton(_ref) {
   })));
 }
 
-function ItemsInCart(_ref2) {
+function TotalItemsInCart(_ref2) {
   let {
     isCartLogo = true,
     newLogo,

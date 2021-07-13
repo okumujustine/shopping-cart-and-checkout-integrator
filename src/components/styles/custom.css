@@ -380,7 +380,35 @@ border-radius:5px;
   padding-right: 3px;
 }
 
+.af__delete_icon{
+  width: 20px;
+  height: 20px;
+  padding-right: 3px;
+  cursor: pointer;
+  color: rgb(250, 171, 171);
+}
+
+.af__delete_icon:hover{
+  color: rgb(253, 95, 95)
+}
+
 .af__items_in_cart{
   display: flex;
   align-items: center;
+}
+
+.af__hide_text_2lines{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+
+.af__hide_text_1line{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }

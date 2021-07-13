@@ -58,11 +58,22 @@ function CartListing(_ref) {
     return price * quantity;
   };
 
+  const removeFromCart = item => {
+    for (var n = 0; n < cartStateItems.length; n++) {
+      if (cartStateItems[n].id === item.id) {
+        cartStateItems.splice(n, 1);
+        console.log(cartStateItems);
+        cartStateItemSetter(cartStateItems);
+        break;
+      }
+    }
+  };
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "w-full mx-2"
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Shopping Cart"), /*#__PURE__*/_react.default.createElement("div", {
     className: "mb-2"
-  }, /*#__PURE__*/_react.default.createElement(_cart.ItemsInCart, {
+  }, /*#__PURE__*/_react.default.createElement(_cart.TotalItemsInCart, {
     isCartLogo: isCartLogo,
     newLogo: newLogo,
     isDescription: isDescription,
@@ -76,12 +87,12 @@ function CartListing(_ref) {
       backgroundImage: "url(" + cartItem.image + ")"
     }
   }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "w-4/12"
-  }, /*#__PURE__*/_react.default.createElement("h5", null, cartItem === null || cartItem === void 0 ? void 0 : cartItem.name), /*#__PURE__*/_react.default.createElement("p", null, cartItem === null || cartItem === void 0 ? void 0 : cartItem.description)), /*#__PURE__*/_react.default.createElement("div", {
-    className: "w-2/12"
-  }, "".concat(cartItem === null || cartItem === void 0 ? void 0 : cartItem.quantity)), /*#__PURE__*/_react.default.createElement("div", {
-    className: "w-4/12"
-  }, /*#__PURE__*/_react.default.createElement("p", null, currencySign, cartTotalPrice(cartItem)), /*#__PURE__*/_react.default.createElement(_cartButtons.IncrementAndDecrementButtons, {
+    className: "w-6/12"
+  }, /*#__PURE__*/_react.default.createElement("h5", {
+    className: "af__hide_text_1line"
+  }, cartItem === null || cartItem === void 0 ? void 0 : cartItem.name), /*#__PURE__*/_react.default.createElement("p", {
+    className: "af__hide_text_2lines"
+  }, cartItem === null || cartItem === void 0 ? void 0 : cartItem.description), /*#__PURE__*/_react.default.createElement(_cartButtons.IncrementAndDecrementButtons, {
     incrementBtnStyle: incrementBtnStyle,
     decrementBtnStyle: decrementBtnStyle,
     incrementBtnClass: incrementBtnClass,
@@ -89,7 +100,23 @@ function CartListing(_ref) {
     product: cartItem,
     cartStateItems: cartStateItems,
     setCartState: cartStateItemSetter
-  }))))), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h5", null, "Total: ", currencySign, totalPrice(cartStateItems)), /*#__PURE__*/_react.default.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "w-3/12 flex flex-col items-center"
+  }, "".concat(cartItem === null || cartItem === void 0 ? void 0 : cartItem.quantity), /*#__PURE__*/_react.default.createElement("p", null, currencySign, cartTotalPrice(cartItem))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "w-1/12 flex flex-col"
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("svg", {
+    onClick: () => removeFromCart(cartItem),
+    xmlns: "http://www.w3.org/2000/svg",
+    className: "af__delete_icon",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "2",
+    d: "M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+  }))))))), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h5", null, "Total: ", currencySign, totalPrice(cartStateItems)), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => continueToCheckout({
       total_price: totalPrice(cartStateItems),
       currency_sign: currencySign,

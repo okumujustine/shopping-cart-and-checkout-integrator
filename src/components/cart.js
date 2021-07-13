@@ -85,7 +85,7 @@ function CartButton({
 }
 
 
-function ItemsInCart({ isCartLogo = true, newLogo, isDescription = true, description }) {
+function TotalItemsInCart({ isCartLogo = true, newLogo, isDescription = true, description }) {
     const cartContext = useContext(CartContext);
     const cartStateItems = cartContext?.cartState
     if (!cartStateItems) {
@@ -103,5 +103,5 @@ function ItemsInCart({ isCartLogo = true, newLogo, isDescription = true, descrip
 
 export {
     CartButton,
-    ItemsInCart
+    TotalItemsInCart
 }

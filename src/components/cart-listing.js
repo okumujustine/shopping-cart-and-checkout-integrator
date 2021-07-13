@@ -1,6 +1,6 @@
 import React from 'react'
 import { CartContext } from "./cart-context"
-import { ItemsInCart } from "./cart"
+import { TotalItemsInCart } from "./cart"
 
 import { IncrementAndDecrementButtons } from "./cart-buttons"
 
@@ -26,11 +26,24 @@ function CartListing({ currencySign, continueToCheckout, isCartLogo, newLogo, is
     const cartTotalPrice = ({ price, quantity }) => {
         return price * quantity
     }
+
+    const removeFromCart = (item) => {
+
+        for (var n = 0; n < cartStateItems.length; n++) {
+            if (cartStateItems[n].id === item.id) {
+                cartStateItems.splice(n, 1);
+                console.log(cartStateItems)
+                cartStateItemSetter(cartStateItems)
+                break;
+            }
+        }
+    }
+
     return (
         <div className="w-full mx-2">
             <h2>Shopping Cart</h2>
             <div className="mb-2">
-                <ItemsInCart isCartLogo={isCartLogo} newLogo={newLogo} isDescription={isDescription} description={description} />
+                <TotalItemsInCart isCartLogo={isCartLogo} newLogo={newLogo} isDescription={isDescription} description={description} />
             </div>
             {cartStateItems.length > 0 && <>
                 <div>
@@ -40,13 +53,9 @@ function CartListing({ currencySign, continueToCheckout, isCartLogo, newLogo, is
                                 backgroundImage: "url(" + cartItem.image + ")",
                             }}>
                             </div>
-                            <div className="w-4/12">
-                                <h5>{cartItem?.name}</h5>
-                                <p>{cartItem?.description}</p>
-                            </div>
-                            <div className="w-2/12" >{(`${cartItem?.quantity}`)}</div>
-                            <div className="w-4/12">
-                                <p>{currencySign}{cartTotalPrice(cartItem)}</p>
+                            <div className="w-6/12">
+                                <h5 className="af__hide_text_1line">{cartItem?.name}</h5>
+                                <p className="af__hide_text_2lines">{cartItem?.description}</p>
                                 <IncrementAndDecrementButtons
                                     incrementBtnStyle={incrementBtnStyle}
                                     decrementBtnStyle={decrementBtnStyle}
@@ -56,6 +65,17 @@ function CartListing({ currencySign, continueToCheckout, isCartLogo, newLogo, is
                                     cartStateItems={cartStateItems}
                                     setCartState={cartStateItemSetter}
                                 />
+                            </div>
+                            <div className="w-3/12 flex flex-col items-center" >
+                                {(`${cartItem?.quantity}`)}
+                                <p>{currencySign}{cartTotalPrice(cartItem)}</p>
+                            </div>
+                            <div className="w-1/12 flex flex-col">
+                                <div>
+                                    <svg onClick={() => removeFromCart(cartItem)} xmlns="http://www.w3.org/2000/svg" className="af__delete_icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     )}

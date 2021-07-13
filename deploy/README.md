@@ -84,6 +84,46 @@ export default App;
 
 ```
 
+### Imports.
+<table>
+  <tr>
+    <th>Components</th>
+    <th>Details</th>
+    <th>Pros</th>
+  </tr>
+  <tr>
+    <td>CartButton</td>
+      <td>
+      integrated as the product button
+    </td>
+    <td>
+      isIncrementAndDecrementBtn,
+      buttonStyle,
+      buttonClass,
+      product
+    </td>
+  </tr>
+  <tr>
+    <td>CartListing</td>
+    <td>Contains the cart content</td>
+    <td>
+        cartDetailsBtnClass,
+        isDescription,
+        description,
+        isCartLogo,
+        continueToCheckout,
+        currencySign,
+    </td>
+  </tr>
+  <tr>
+    <td>TotalItemsInCart</td>
+    <td>
+    Independently imports total  number of items in the cart
+    </td>
+    <td>isCartLogo </td>
+  </tr>
+</table>
+
 ### Customization
 <p>Adding custom styles and classes</p>
 <p><b>1. CartButton</b></p>

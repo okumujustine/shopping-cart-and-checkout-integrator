@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CartButton, ItemsInCart } from "./cart"
+import { CartButton, TotalItemsInCart } from "./cart"
 import { CartContext, cartReducer } from "./cart-context"
 import { CartListing } from "./cart-listing"
 
@@ -16,7 +16,7 @@ function CartWrapper({ children }) {
 }
 export {
     CartButton,
-    ItemsInCart,
+    TotalItemsInCart,
     CartWrapper,
     CartListing
 }
