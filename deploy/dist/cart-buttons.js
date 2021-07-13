@@ -10,6 +10,8 @@ require("core-js/modules/web.dom-collections.iterator.js");
 
 var _react = _interopRequireDefault(require("react"));
 
+var _cartContext = require("./cart-context");
+
 var _action = require("./helpers/action");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -88,7 +90,13 @@ const AddToCartButton = _ref2 => {
     addToCartBtnStyle
   } = _ref2;
 
+  const cartContext = _react.default.useContext(_cartContext.CartContext);
+
   const addToCart = () => {
+    if (cartContext !== null && cartContext !== void 0 && cartContext.cartShow) {
+      cartContext === null || cartContext === void 0 ? void 0 : cartContext.setCartShowWithin(!(cartContext !== null && cartContext !== void 0 && cartContext.cartShowWithin));
+    }
+
     const cartItems = cartStateItems === null || cartStateItems === void 0 ? void 0 : cartStateItems.slice();
     const found = (0, _action.isProductInArray)(cartItems, product);
 

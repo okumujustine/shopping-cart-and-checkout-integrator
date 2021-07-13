@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
+.af__main_class{
+  font-family: Poppins, sans-serif;
+}
+
 .cart__add__to__button {
     display: block;
     position: relative;
@@ -385,11 +389,11 @@ border-radius:5px;
   height: 20px;
   padding-right: 3px;
   cursor: pointer;
-  color: rgb(250, 171, 171);
+  color: rgb(248, 54, 54);
 }
 
 .af__delete_icon:hover{
-  color: rgb(253, 95, 95)
+  color: rgb(245, 10, 10)
 }
 
 .af__items_in_cart{
@@ -411,4 +415,65 @@ border-radius:5px;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+
+.af__cart_show_class{
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  z-index: 99999999;
+  display:flex;
+  justify-content:space-between ;
+  position:fixed;
+}
+
+.af__cart_show_class_left{
+  width: 60%;
+  background-color: rgba(92, 92, 92, 0.664);
+}
+
+.af__cart_show_class_right{
+  width: 40%;
+  padding: 5px 20px;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.af__title_close_button{
+  display:'flex';
+  align-items:center;
+  justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .af__cart_show_class{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    z-index: 99999999;
+    position:fixed;
+  }
+
+  .af__cart_show_class_left{
+    display: none;
+  }
+
+  .af__cart_show_class_right{
+    width: 100%;
+    background-color: #fff;
+    padding: 5px 20px;
+    overflow-y: scroll;
+  }
+
+  .cart__in__cart__button{
+    width: 20px;
+    color: #fff;
+    border:none;
+    border-radius:3px;
+    font-size: 14px;
+}
 }

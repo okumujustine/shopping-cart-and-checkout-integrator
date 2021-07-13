@@ -37,15 +37,46 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function CartWrapper(_ref) {
   let {
-    children
+    children,
+    cartShow = true,
+    currencySign,
+    continueToCheckout
   } = _ref;
 
   const [cartState, setCartState] = _react.default.useReducer(_cartContext.cartReducer, []);
 
+  const [cartShowWithin, setCartShowWithin] = _react.default.useState(false);
+
+  const [currencySignInternal, setCurrencySignInternal] = _react.default.useState("");
+
+  const closeCart = () => {
+    setCartShowWithin(false);
+  };
+
+  _react.default.useEffect(() => {
+    if (currencySign) {
+      setCurrencySignInternal(currencySign);
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  }, []);
+
+  function goToCheckout() {
+    console.log("make sure continueToCheckout prop is passed");
+  }
+
   return /*#__PURE__*/_react.default.createElement(_cartContext.CartContext.Provider, {
     value: {
       cartState,
-      setCartState
+      setCartState,
+      cartShow,
+      cartShowWithin,
+      setCartShowWithin,
+      closeCart,
+      currencySignInternal,
+      goToCheckout
     }
-  }, children);
+  }, cartShowWithin && cartShowWithin ? /*#__PURE__*/_react.default.createElement(_cartListing.CartListing, {
+    currencySign: currencySignInternal,
+    continueToCheckout: continueToCheckout
+  }) : null, children);
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { CartContext } from "./cart-context"
 
 import { incrementArrayQuantity, decrementArrayQuantity, isProductInArray, getQuantityFromArray } from "./helpers/action"
 
@@ -70,8 +71,13 @@ function IncrementAndDecrementButtons({
 
 
 const AddToCartButton = ({ product, cartStateItems, setCartState, addToCartBtnClass, addToCartBtnStyle }) => {
+    const cartContext = React.useContext(CartContext);
 
     const addToCart = () => {
+
+        if (cartContext?.cartShow) {
+            cartContext?.setCartShowWithin(!cartContext?.cartShowWithin)
+        }
 
         const cartItems = cartStateItems?.slice();
 
